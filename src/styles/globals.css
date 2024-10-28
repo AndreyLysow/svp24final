@@ -1,0 +1,120 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #000;
+	overflow-x: hidden;
+	color: initial;
+}
+
+.scroll-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(6, 68, 105, 0.9);
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	z-index: 1000;
+}
+
+.scroll-to-top.show {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+	transform: scale(1.1);
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* Темный скроллбар для WebKit */
+::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #333;
+	border-radius: 6px;
+	border: 3px solid #171A1A;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #171A1A;
+}
+
+
+/* Адаптивные стили для кнопки скролла наверх */
+@media (max-width: 768px) {
+	.scroll-to-top {
+		bottom: 20px;
+		right: 20px;
+		width: 35px;
+		height: 35px;
+	}
+}
+
+@media (max-width: 576px) {
+	.scroll-to-top {
+		bottom: 15px;
+		right: 15px;
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* Поддержка iOS и других устройств */
+@supports (-webkit-touch-callout: none) {
+
+	.header-content h1,
+	.header-content p,
+	.contact-info p {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+/* header.css */
+.menu-item.activelink.mask-next::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 47px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.menu-item.active2::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 47px;
+	background-color: rgba(255, 255, 255, 0);
+	border-radius: 5%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

@@ -1,0 +1,316 @@
+/* Основные стили для контейнера слайдера */
+.slider-container {
+	width: 100%;
+	height: 70vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 10px;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Стили для содержимого слайда */
+.slide-content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Изображения занимают всю область слайда */
+.slide-content img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+	opacity: 0.5;
+	box-sizing: border-box;
+}
+
+/* Неподвижный контент поверх слайдера */
+.static-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: white;
+	z-index: 3;
+	width: 90%;
+}
+
+/* Заголовок с градиентной заливкой и тенью */
+.static-content h3 {
+	font-size: 48px;
+	font-weight: bold;
+	color: #9CCDDB;
+	/* Акцентный синий цвет для текста */
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	text-shadow:
+		0px 1px 2px rgba(0, 0, 0, 0.8),
+		/* Легкая тень для объема */
+		0px 3px 6px rgba(0, 0, 0, 0.6),
+		/* Контрастная основная тень под буквами */
+		0px 5px 10px rgba(0, 0, 0, 0.4);
+	/* Слегка размытая глубокая тень */
+}
+
+/* Оформление контейнера с описанием */
+.description-container {
+	background-color: rgba(87, 144, 171, 0.85);
+	padding: 20px 30px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	max-width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.description-container p {
+	font-size: 27px;
+	color: #D0D7E1;
+	text-align: center;
+	line-height: 1.5;
+}
+
+/* Стиль для контейнера кнопки */
+.details-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	text-decoration: none;
+}
+
+.details-link {
+	background-color: #064469;
+	color: #D0D7E1;
+	padding: 14px 28px;
+	border-radius: 5px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: pointer;
+	position: relative;
+	text-decoration: none;
+	overflow: hidden;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.details-link:hover {
+	background-color: #34568B;
+	transform: scale(1.05);
+}
+
+.details-link:before {
+	content: '';
+	position: absolute;
+	top: -150px;
+	left: 0;
+	width: 30px;
+	height: 100%;
+	background-color: #D0D7E1;
+	animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+/* Анимация кнопки */
+@keyframes shiny-btn1 {
+	0% {
+		transform: scale(0) rotate(45deg);
+		opacity: 0;
+	}
+
+	80% {
+		transform: scale(0) rotate(45deg);
+		opacity: 0.5;
+	}
+
+	81% {
+		transform: scale(4) rotate(45deg);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(50) rotate(45deg);
+		opacity: 0;
+	}
+}
+
+/* Градиентный наложенный слой */
+.gradient-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+	z-index: 1;
+	pointer-events: none;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+/* Стили для панели управления */
+.controls-container {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+	align-items: center;
+	z-index: 4;
+	background-color: rgba(32, 35, 40, 0.8);
+	border-radius: 5px;
+	padding: 0 10px;
+	height: 60px;
+	width: 350px;
+	border: 1px solid rgba(255, 13, 30, 0.2);
+	transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Стили счётчика слайдов */
+.slide-counter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 10px;
+}
+
+.current-slide,
+.total-slides {
+	font-size: 1.4em;
+}
+
+.progress-bar {
+	width: 180px;
+	height: 5px;
+	background-color: rgba(29, 53, 87, 0.8);
+	position: relative;
+	margin: 0 10px;
+	border-radius: 5px;
+}
+
+.progress-bar .filled {
+	height: 100%;
+	background-color: rgba(244, 67, 54, 0.7);
+	transition: width 0.3s ease;
+}
+
+/* Управление стрелками */
+.custom-swiper-controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.custom-swiper-button-prev,
+.custom-swiper-button-next {
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.custom-swiper-button-prev img,
+.custom-swiper-button-next img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1200px) {
+	.static-content h3 {
+		font-size: 32px;
+	}
+
+	.description-container p {
+		font-size: 20px;
+	}
+
+	.details-link {
+		font-size: 14px;
+		padding: 8px 16px;
+	}
+
+	.controls-container {
+		width: 300px;
+		height: 50px;
+	}
+}
+
+@media (max-width: 992px) {
+	.static-content h3 {
+		font-size: 24px;
+	}
+
+	.description-container p {
+		font-size: 18px;
+	}
+
+	.details-link {
+		font-size: 12px;
+		padding: 6px 14px;
+	}
+
+	.controls-container {
+		width: 260px;
+		height: 45px;
+	}
+}
+
+@media (max-width: 768px) {
+	.static-content h3 {
+		font-size: 20px;
+	}
+
+	.description-container p {
+		font-size: 16px;
+	}
+
+	.details-link {
+		font-size: 11px;
+		padding: 6px 12px;
+	}
+
+	.controls-container {
+		width: 220px;
+		height: 40px;
+	}
+}
+
+@media (max-width: 576px) {
+	.static-content {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 90%;
+		text-align: center;
+	}
+
+	.static-content h3 {
+		font-size: 16px;
+	}
+
+	.description-container p {
+		font-size: 14px;
+	}
+
+	.details-link {
+		font-size: 10px;
+		padding: 4px 10px;
+	}
+
+	.controls-container {
+		width: 200px;
+		height: 35px;
+	}
+}

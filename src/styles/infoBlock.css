@@ -1,0 +1,308 @@
+/* Основные стили для инфоблока */
+.info-block {
+	width: 100vw;
+	background-color: #072D44;
+	/* Темно-синий основной фон */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	position: relative;
+	z-index: 10;
+	margin: 0;
+}
+
+.info-block-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	border-radius: 8px;
+	color: #D0D7E1;
+	/* Светлый текст */
+	position: relative;
+	box-sizing: border-box;
+}
+
+.info-block::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #072D44;
+	/* Более тёмный оттенок для фона */
+	z-index: -1;
+}
+
+.info-block-container .left-column,
+.info-block-container .right-column {
+	flex: 1;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.info-block-container .left-column {
+	padding: 0 10px;
+	text-align: left;
+}
+
+.info-block-container .left-column h2 {
+	font-family: 'Montserrat Black', sans-serif;
+	font-size: 18px;
+	color: #9CCDDB;
+	/* Синий акцент для заголовка */
+	margin-left: 0;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+/* Стили для списка с маркерами */
+.info-block-container .info-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.info-block-container .info-list li {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16.1px;
+	color: #D0D7E1;
+	/* Текст белого цвета */
+	margin: 10px 0;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+}
+
+.info-block-container .info-list li img {
+	width: auto;
+	height: auto;
+	max-width: 20px;
+	max-height: 20px;
+	margin-right: 10px;
+	content: url('/icons/universal_mark.svg');
+}
+
+/* Правый блок контактов */
+.info-block-container .right-column {
+	align-items: flex-end;
+	background-color: #072D44;
+	border-radius: 8px;
+	position: relative;
+	padding: 20px 80px 20px 20px;
+}
+
+.info-block-container .contact-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 400px;
+	margin-top: 10px;
+	flex-direction: column;
+}
+
+.contact-link {
+	color: #D0D7E1;
+	font-size: 22px;
+	margin: 7px 0;
+	white-space: nowrap;
+	text-decoration: none;
+	text-align: left;
+	display: flex;
+	align-items: center;
+}
+
+.contact-link:hover {
+	color: #9CCDDB;
+	text-decoration: none;
+}
+
+.contact-link img {
+	margin-right: 10px;
+	width: 25px;
+	height: 25px;
+	flex-shrink: 0;
+	/* Предотвращает изменение размера иконок */
+}
+
+/* Контейнер для выравнивания значков */
+.contact-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* Выровнять значки по левой стороне */
+}
+
+.contact-link .phone-icon {
+	margin-left: -2ch;
+	/* Сдвигаем иконку телефона влево на 2 символа */
+}
+/* Кнопка расчёта */
+.calculate-button {
+	margin-top: 16px;
+	overflow: hidden;
+	width: 333px;
+	height: 44px;
+	background-color: #064469;
+	/* Полупрозрачный акцентный цвет */
+	color: #D0D7E1;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: 'Montserrat ExtraBold', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	transition: background-color 0.3s ease;
+	align-self: flex-end;
+	position: relative;
+}
+
+.calculate-button:hover {
+	background-color: #34568B;
+	/* Более тёмный оттенок при наведении */
+}
+
+.calculate-button:before {
+	position: absolute;
+	content: '';
+	display: inline-block;
+	top: -180px;
+	left: 0;
+	width: 30px;
+	height: 100%;
+	background-color: #D0D7E1;
+	/* Светлый эффект при наведении */
+	animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+/* Анимация кнопки */
+@keyframes shiny-btn1 {
+	0% {
+		transform: scale(0) rotate(45deg);
+		opacity: 0;
+	}
+
+	80% {
+		transform: scale(0) rotate(45deg);
+		opacity: 0.5;
+	}
+
+	81% {
+		transform: scale(4) rotate(45deg);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(50) rotate(45deg);
+		opacity: 0;
+	}
+}
+
+/* Адаптивные стили */
+@media (max-width: 1200px) {
+	.info-block-container {
+		padding: 15px;
+	}
+}
+
+@media (max-width: 992px) {
+	.info-block-container .right-column {
+		padding: 20px 60px 20px 20px;
+	}
+
+	.calculate-button {
+		width: 345px;
+		height: 46px;
+	}
+}
+
+/* Адаптивный стиль для мобильных устройств */
+@media (max-width: 768px) {
+	.info-block-container {
+		flex-direction: column;
+		align-items: center;
+		padding: 15px;
+		height: auto;
+	}
+
+	.info-block-container .left-column,
+	.info-block-container .right-column {
+		width: 100%;
+		padding: 0;
+		align-items: center;
+	}
+
+	.info-block-container .right-column {
+		align-items: center;
+	}
+
+	.info-block-container .info-list {
+		margin-right: 20px;
+	}
+
+	.info-block-container .contact-info {
+		text-align: center;
+		margin-top: 20px;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.contact-link {
+		font-size: 14px;
+	}
+
+	.calculate-button {
+		width: 253px;
+		height: 34.5px;
+		padding: 7px;
+		font-size: 9.8px;
+		margin-top: 30px;
+		align-self: center;
+	}
+
+	.info-block-container .left-column {
+		order: 2;
+	}
+
+	.info-block-container .contact-info {
+		order: 0;
+	}
+
+	.info-block-container .calculate-button {
+		order: 1;
+	}
+
+	.info-block-container .info-list {
+		flex-direction: column;
+		order: 3;
+	}
+}
+
+@media (max-width: 576px) {
+	.info-block-container .contact-link {
+		font-size: 14px;
+	}
+
+	.info-block-container .info-list li {
+		font-size: 14px;
+	}
+
+	.calculate-button {
+		width: 230px;
+		height: 33.35px;
+		padding: 8px;
+		font-size: 9.8px;
+		margin-top: 30px;
+		align-self: center;
+	}
+
+	.calculate-button:before {
+		top: -120px;
+		width: 20px;
+	}
+}

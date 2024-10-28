@@ -1,0 +1,213 @@
+/* Основные стили футера */
+footer {
+	background-color: rgba(6, 68, 105, 0.9);
+	color: #ffffff;
+	padding: 40px 20px;
+	width: 100%;
+	position: relative;
+	z-index: 10;
+}
+
+/* Верхняя часть футера */
+.footer-top {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.footer-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	max-width: 1000px;
+	width: 100%;
+	gap: 20px;
+}
+
+.footer-logo-section,
+.footer-section {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.footer-logo-section {
+	width: 150px;
+	margin-right: 70px;
+	line-height: 1.5;
+}
+
+.footer-logo {
+	width: 120px;
+	height: 40px;
+	margin-bottom: 20px;
+}
+
+/* Стили для текстовых блоков */
+.footer-info,
+.footer-socials {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	margin-top: 25px;
+}
+
+.footer-socials {
+	gap: 15px;
+}
+
+.footer-company-details {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	max-width: 200px;
+}
+
+.footer-company-details a,
+.footer-info a,
+.footer-socials a {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-company-details a:hover,
+.footer-info a:hover,
+.footer-socials a:hover {
+	color: #9CCDDB;
+	text-decoration: underline;
+}
+
+/* Заголовки секций с белой линией под ними */
+.footer-section-title {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+	font-size: 18px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.footer-section-title::after {
+	content: '';
+	display: block;
+	width: 30px;
+	height: 3px;
+	background-color: white;
+	position: absolute;
+	top: 36px;
+	left: 0;
+	transform: translateX(0);
+}
+
+/* Иконки социальных сетей */
+.footer-social-icons {
+	display: flex;
+	gap: 16px;
+	justify-content: flex-start;
+}
+
+.footer-social-icon-container a {
+	display: flex;
+	align-items: center;
+	transition: transform 0.3s ease;
+}
+
+.footer-social-icon-container a:hover {
+	transform: scale(1.1);
+}
+
+/* Цвета для иконок при наведении */
+.footer-social-icon-container:hover a[href*="t.me"] img {
+	filter: brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(2000%) hue-rotate(190deg) brightness(90%) contrast(100%);
+}
+
+.footer-social-icon-container:hover a[href*="wa.me"] img {
+	filter: brightness(0) saturate(100%) invert(51%) sepia(75%) saturate(800%) hue-rotate(85deg) brightness(100%) contrast(92%);
+}
+
+/* Нижняя часть футера */
+.footer-bottom {
+	text-align: center;
+	padding-top: 20px;
+	margin-top: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: #D0D7E1;
+}
+
+.footer-bottom a {
+	color: #9CCDDB;
+	text-decoration: none;
+	transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-bottom a:hover {
+	color: #D0D7E1;
+	text-decoration: underline;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+	.footer-top {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.footer-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.footer-logo-section {
+		width: auto;
+		align-items: center;
+		margin-right: 0;
+	}
+
+	.footer-section,
+	.footer-info,
+	.footer-socials,
+	.footer-company-details {
+		align-items: center;
+		text-align: center;
+	}
+
+	.footer-section-title {
+		text-align: center;
+	}
+
+	.footer-section-title::after {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.footer-social-icons {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 576px) {
+	.footer-logo {
+		width: 200px;
+		height: 40px;
+	}
+
+	.footer-company-details {
+		font-size: 14px;
+	}
+
+	.footer-section-title {
+		font-size: 16px;
+	}
+
+	.footer-info,
+	.footer-socials {
+		font-size: 14px;
+	}
+}
